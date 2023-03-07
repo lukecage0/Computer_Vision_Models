@@ -1,0 +1,20 @@
+conda env create -f conda-cpu.yml
+
+conda activate yolov3-cpu
+
+# yolov3
+python detect.py --images "data/images/dog.jpg, data/images/office.jpg"
+
+# yolov3-tiny
+python detect.py --weights ./weights/yolov3-tiny.tf --tiny --images "data/images/dog.jpg"
+
+# webcam
+python detect_video.py --video 0
+
+# video file
+python detect_video.py --video data/video/paris.mp4 --weights ./weights/yolov3-tiny.tf --tiny
+
+# video file with output saved (can save webcam like this too)
+python detect_video.py --video path_to_file.mp4 --output ./detections/output.avi
+
+# To interrupt Ctrl+c
